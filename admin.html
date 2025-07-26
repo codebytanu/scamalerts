@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel - Scam Verification</title>
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+<h1>Admin Panel - Verify Scam Reports</h1>
+<div id="loginSection" class="login-section">
+<input type="password" id="adminPassword" placeholder="Admin Password">
+<button onclick="checkPassword()">Login</button>
+<p id="loginMessage" style="color: red;"></p>
+</div>
+<div id="adminSection" class="admin-section" style="display: none;">
+<p>Logged in as Admin. Reports below are refreshed every 10 seconds.</p>
+<div id="reportsContainer">
+<p class="no-reports">Loading reports...</p>
+</div>
+<button onclick="logout()">Logout</button>
+</div>
+<div class="nav-links">
+<a href="index.html">Report a new Scam</a>
+<a href="alerts.html">View Live Scam Alerts</a>
+</div>
+<script src="js/admin.js"></script>
+</body>
+</html>

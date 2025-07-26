@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Report a Scam - Jamshedpur Alerts</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<h1>Report a Potential Scam</h1>
+<form id="scamReportForm">
+<label for="scamType">Type of Scam:</label>
+<select id="scamType" required>
+<option value="">Select Type</option>
+<option value="Internship Scam">Internship Scam</option>
+<option value="Job Offer Scam">Job Offer Scam</option>
+<option value="Online Shopping Scam">Online Shopping Scam</option>
+<option value="Loan Scam">Loan Scam</option>
+<option value="Property Scam">Property Photo Scam</option>
+<option value="Phishing Email/SMS">Phishing Email/SMS</option>
+<option value="Other">Other</option>
+</select>
+<label for="description">Scam Description: </label>
+<textarea id="description" rows="5" required placeholder="Describe what
+happened..."></textarea>
+<label for="reporterContact">Your Contact (Optional, for verification):</label>
+<input type="text" id="reporterContact" placeholder="Email or Phone No.">
+<label for="location">Location (e.g., Jamshedpur area, specific landmark):</label>
+<input type="text" id="location" required placeholder="e.g., Sakchi, near Jubilee Park">
+<label for="reporterType">I am a:</label>
+<select id="reporterType">
+<option value="student">Student</option>
+<option value="local_resident">Local Resident</option>
+<option value="business_owner">Business Owner</option>
+<option value="other">Other</option>
+</select>
+<button type="submit">Submit Scam Report</button>
+</form>
+<div id="message"></div>
+<a href="alerts.html">View Live Scam Alerts</a>
+<script src="js/index.js"></script>  </body>
+</html>
