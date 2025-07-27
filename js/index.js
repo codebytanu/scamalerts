@@ -1,27 +1,26 @@
-const sheetBestAPI = 'https://api.sheetbest.com/sheets/954fa3c2-efc7-499e-bd88-83599bcf71ad'; // Updated API URL
+const sheetBestAPI = 'https://api.sheetbest.com/sheets/954fa3c2-efc7-499e-bd88-83599bcf71ad'; // Your Sheet.best API URL
 const form = document.getElementById('scamReportForm');
 const messageDiv = document.getElementById('message');
 
 form.addEventListener('submit', async (e) => {
-    e.preventDefault(); // Stop the form from refreshing the page
+    e.preventDefault();
 
     const scamType = document.getElementById('scamType').value;
-    const companyName = document.getElementById('companyName').value; // New: Capture Company Name
+    const companyName = document.getElementById('companyName').value;
     const description = document.getElementById('description').value;
     const reporterContact = document.getElementById('reporterContact').value;
     const location = document.getElementById('location').value;
-    const reporterType = document.getElementById('reporterType')? document.getElementById('reporterType').value : ""; // Optional reporter type
+    const reporterType = document.getElementById('reporterType')? document.getElementById('reporterType').value : "";
 
-    // Generate a simple unique ID for this alert
     const alertid = 'scam-' + Date.now();
 
     const data = {
         scamType: scamType,
-        companyName: companyName, // New: Add Company Name to data
+        companyName: companyName,
         description: description,
         reporterContact: reporterContact,
         location: location,
-        reporterType: reporterType, // Add to data
+        reporterType: reporterType,
         status: 'pending', // Always start as pending
         timestamp: new Date().toISOString(),
         verifiedByAdmin: "", // Empty until verified
@@ -31,7 +30,7 @@ form.addEventListener('submit', async (e) => {
     try {
         const response = await fetch(sheetBestAPI, {
             method: 'POST',
-            mode: 'cors', // Important for Sheet.best
+            mode: 'cors',
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -42,14 +41,29 @@ form.addEventListener('submit', async (e) => {
             messageDiv.style.color = 'green';
             messageDiv.textContent = 'Scam reported successfully! Thank you.';
             form.reset(); // Clear the form
+            messageDiv.style.display = "block"; // MAKE THE MESSAGE VISIBLE
+            setTimeout(() => {
+                messageDiv.style.display = "none"; // Hide the message after 5 seconds
+                messageDiv.textContent = ""; // Clear the text
+            }, 5000);
         } else {
             messageDiv.style.color = 'red';
             messageDiv.textContent = 'Failed to report scam. Please try again.';
+            messageDiv.style.display = "block"; // MAKE THE ERROR MESSAGE VISIBLE
+            setTimeout(() => {
+                messageDiv.style.display = "none";
+                messageDiv.textContent = "";
+            }, 5000);
             console.error('Error submitting form:', response.statusText);
         }
     } catch (error) {
         messageDiv.style.color = 'red';
         messageDiv.textContent = 'Network error. Please check your connection.';
+        messageDiv.style.display = "block"; // MAKE THE NETWORK ERROR VISIBLE
+        setTimeout(() => {
+            messageDiv.style.display = "none";
+            messageDiv.textContent = "";
+        }, 5000);
         console.error('Network error:', error);
     }
 });
