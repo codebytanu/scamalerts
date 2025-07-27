@@ -1,4 +1,4 @@
-const sheetBestAPI = 'https://api.sheetbest.com/sheets/954fa3c2-efc7-499e-bd88-83599bcf71ad';
+const sheetBestAPI = 'https://script.google.com/macros/s/AKfycbwuSHDDAPHncZbfNz2cvq4ZSobCUSOQO091Qyte0WKj0E9z8llHOUaLwFq1nvDM-CjOoQ/exec';
 const alertsContainer = document.getElementById('alertsContainer');
 const scamTypeFilterInput = document.getElementById('scamTypeFilter'); // Changed ID to match HTML
 const applyFilterButton = document.getElementById('applyFilter');

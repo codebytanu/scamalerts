@@ -1,4 +1,4 @@
-const sheetBestAPI = 'https://api.sheetbest.com/sheets/954fa3c2-efc7-499e-bd88-83599bcf71ad'; // Your Sheet.best API URL
+const sheetBestAPI = 'https://script.google.com/macros/s/AKfycbwuSHDDAPHncZbfNz2cvq4ZSobCUSOQO091Qyte0WKj0E9z8llHOUaLwFq1nvDM-CjOoQ/exec';
 const form = document.getElementById('scamReportForm');
 const messageDiv = document.getElementById('message');
 
